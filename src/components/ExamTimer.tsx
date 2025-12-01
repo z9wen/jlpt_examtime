@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
-import { type ExamStage, N3_EXAM_STAGES } from '@/types/exam';
+import { N3_EXAM_STAGES } from '@/types/exam';
 import { useAudioAlert } from '@/hooks/useAudioAlert';
 import { Play, Pause, RotateCcw, Clock, CheckCircle2 } from 'lucide-react';
 
