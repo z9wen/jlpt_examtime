@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jlpt.zew9.com/sitemap.xml
+
+# 爬虫友好
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /

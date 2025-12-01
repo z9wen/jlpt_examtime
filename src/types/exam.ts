@@ -1,45 +1,172 @@
 export type ExamStage = {
   id: string;
-  name: string;
+  nameKey: 'vocabGrammarReadingStage' | 'vocabStage' | 'grammarReadingStage' | 'listeningStage' | 'break1' | 'break2';
+  descKey: 'vocabGrammarReadingDesc' | 'vocabDesc' | 'grammarReadingDesc' | 'listeningDesc' | 'breakDesc';
   duration: number; // 分钟
   type: 'exam' | 'break';
-  description?: string;
 }
 
-export const N3_EXAM_STAGES: ExamStage[] = [
-  {
-    id: 'vocab',
-    name: '语言知识（文字·词汇）',
-    duration: 30,
-    type: 'exam',
-    description: '汉字读音、词汇选择等。答完立即涂答题卡！'
-  },
-  {
-    id: 'break1',
-    name: '第一次休息',
-    duration: 10,
-    type: 'break',
-    description: '可以离开座位、上洗手间'
-  },
-  {
-    id: 'grammar',
-    name: '语言知识（语法）、阅读',
-    duration: 70,
-    type: 'exam',
-    description: '语法选择、短文阅读、长文阅读等。答完立即涂答题卡！'
-  },
-  {
-    id: 'break2',
-    name: '第二次休息',
-    duration: 10,
-    type: 'break',
-    description: '可以离开座位、上洗手间'
-  },
-  {
-    id: 'listening',
-    name: '听力',
-    duration: 40,
-    type: 'exam',
-    description: '必须边听边涂答题卡！录音结束立即收卡！'
-  }
-];
+export type JLPTLevel = 'N1' | 'N2' | 'N3' | 'N4' | 'N5';
+
+export const EXAM_STAGES: Record<JLPTLevel, ExamStage[]> = {
+  N1: [
+    {
+      id: 'vocab-grammar-reading',
+      nameKey: 'vocabGrammarReadingStage',
+      descKey: 'vocabGrammarReadingDesc',
+      duration: 110,
+      type: 'exam',
+    },
+    {
+      id: 'break',
+      nameKey: 'break1',
+      descKey: 'breakDesc',
+      duration: 10,
+      type: 'break',
+    },
+    {
+      id: 'listening',
+      nameKey: 'listeningStage',
+      descKey: 'listeningDesc',
+      duration: 60,
+      type: 'exam',
+    }
+  ],
+  N2: [
+    {
+      id: 'vocab-grammar-reading',
+      nameKey: 'vocabGrammarReadingStage',
+      descKey: 'vocabGrammarReadingDesc',
+      duration: 105,
+      type: 'exam',
+    },
+    {
+      id: 'break',
+      nameKey: 'break1',
+      descKey: 'breakDesc',
+      duration: 10,
+      type: 'break',
+    },
+    {
+      id: 'listening',
+      nameKey: 'listeningStage',
+      descKey: 'listeningDesc',
+      duration: 50,
+      type: 'exam',
+    }
+  ],
+  N3: [
+    {
+      id: 'vocab',
+      nameKey: 'vocabStage',
+      descKey: 'vocabDesc',
+      duration: 30,
+      type: 'exam',
+    },
+    {
+      id: 'break1',
+      nameKey: 'break1',
+      descKey: 'breakDesc',
+      duration: 10,
+      type: 'break',
+    },
+    {
+      id: 'grammar-reading',
+      nameKey: 'grammarReadingStage',
+      descKey: 'grammarReadingDesc',
+      duration: 70,
+      type: 'exam',
+    },
+    {
+      id: 'break2',
+      nameKey: 'break2',
+      descKey: 'breakDesc',
+      duration: 10,
+      type: 'break',
+    },
+    {
+      id: 'listening',
+      nameKey: 'listeningStage',
+      descKey: 'listeningDesc',
+      duration: 40,
+      type: 'exam',
+    }
+  ],
+  N4: [
+    {
+      id: 'vocab',
+      nameKey: 'vocabStage',
+      descKey: 'vocabDesc',
+      duration: 25,
+      type: 'exam',
+    },
+    {
+      id: 'break1',
+      nameKey: 'break1',
+      descKey: 'breakDesc',
+      duration: 10,
+      type: 'break',
+    },
+    {
+      id: 'grammar-reading',
+      nameKey: 'grammarReadingStage',
+      descKey: 'grammarReadingDesc',
+      duration: 55,
+      type: 'exam',
+    },
+    {
+      id: 'break2',
+      nameKey: 'break2',
+      descKey: 'breakDesc',
+      duration: 10,
+      type: 'break',
+    },
+    {
+      id: 'listening',
+      nameKey: 'listeningStage',
+      descKey: 'listeningDesc',
+      duration: 35,
+      type: 'exam',
+    }
+  ],
+  N5: [
+    {
+      id: 'vocab',
+      nameKey: 'vocabStage',
+      descKey: 'vocabDesc',
+      duration: 20,
+      type: 'exam',
+    },
+    {
+      id: 'break1',
+      nameKey: 'break1',
+      descKey: 'breakDesc',
+      duration: 10,
+      type: 'break',
+    },
+    {
+      id: 'grammar-reading',
+      nameKey: 'grammarReadingStage',
+      descKey: 'grammarReadingDesc',
+      duration: 40,
+      type: 'exam',
+    },
+    {
+      id: 'break2',
+      nameKey: 'break2',
+      descKey: 'breakDesc',
+      duration: 10,
+      type: 'break',
+    },
+    {
+      id: 'listening',
+      nameKey: 'listeningStage',
+      descKey: 'listeningDesc',
+      duration: 30,
+      type: 'exam',
+    }
+  ]
+};
+
+// 向后兼容
+export const N3_EXAM_STAGES = EXAM_STAGES.N3;
